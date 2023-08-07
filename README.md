@@ -1,1 +1,2 @@
 # hichart
+Test highchart lib
