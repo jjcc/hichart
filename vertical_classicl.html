@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Highcharts Vertical Bar Chart with Plot Lines</title>
+  <!-- Include the Highcharts library -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+  <h1>Highcharts Vertical Bar Chart with Plot Lines</h1>
+  <!-- HTML container for the chart -->
+  <div id="chart-container" style="width: 500px; height: 300px;"></div>
+
+  <!-- Highcharts JavaScript code for vertical bar chart with plot lines -->
+  <script>
+    // Your Highcharts code here
+    var data = [
+      { category: 'Category 1', value: 10 },
+      { category: 'Category 2', value: 25 },
+      { category: 'Category 3', value: 15 },
+      // Add more data points as needed
+    ];
+
+    Highcharts.chart('chart-container', {
+      chart: {
+        type: 'column' // Use 'column' for vertical bars
+      },
+      title: {
+        text: 'Vertical Bar Chart with Plot Lines'
+      },
+      xAxis: {
+        categories: data.map(point => point.category),
+        title: {
+          text: 'X-axis Label'
+        },
+        plotLines: [
+          
+         { 
+           color: 'red',
+           dashStyle: 'dash',
+           width: 2,
+           value: 0.5 // Adjust the value to set the position of the plot line
+         },
+         {
+          color: 'blue',
+          dashStyle: 'dash',
+          width: 2,
+          value: 1.5 // Adjust the value to set the position of the plot line
+        }]
+      },
+      yAxis: {
+        title: {
+          text: 'Y-axis Label'
+        }
+      },
+      series: [{
+        name: 'Data',
+        data: data.map(point => point.value)
+      }]
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vertical New</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Header</h1>
+        </div>
+        <div class="content">
+            <div id="chart-container" style="width: 500px; height: 300px;"></div>
+        
+  <!-- Highcharts JavaScript code for vertical bar chart with plot lines -->
+            <script>
+                // Your Highcharts code here
+                var data = [
+                  { range: '-0.5-1', value: 10 },
+                  { range: 'Category 2', value: 25 },
+                  { range: 'Category 3', value: 15 },
+                  // Add more data points as needed
+                ];
+            
+
+                var options = {
+                  chart: {
+                    type: 'column',
+                    renderTo: 'chart-container'
+                  },
+                  title: {
+                    text: 'Vertical Bar Chart with Plot Lines'
+                  },
+                  xAxis: {
+                    categories: data.map(point => point.range),
+                    title: {
+                      text: 'X-axis Label'
+                    },
+                    plotLines: [
+                      
+                    { // Add plot lines for each bar
+                      color: 'orange',
+                      dashStyle: 'dash',
+                      width: 2,
+                      value: -0.3 // Adjust the value to set the position of the plot line
+                    }, 
+                    { // Add plot lines for each bar
+                      color: 'red',
+                      dashStyle: 'dash',
+                      width: 2,
+                      value: 0.5 // Adjust the value to set the position of the plot line
+                    }, {
+                      color: 'blue',
+                      dashStyle: 'dash',
+                      width: 2,
+                      value: 1.3 // Adjust the value to set the position of the plot line
+                    },
+                    { // Add plot lines for each bar
+                      color: 'green',
+                      dashStyle: 'dash',
+                      width: 2,
+                      value: 2.4 // Adjust the value to set the position of the plot line
+                    }
+                  ]
+                  },
+                  yAxis: {
+                    title: {
+                      text: 'Y-axis Label'
+                    },
+                    plotLines: [
+                      
+                      { 
+                        color: 'green',
+                        dashStyle: 'dash',
+                        width: 1,
+                        value: 21 // Adjust the value to set the position of the plot line
+                      }
+                    ],
+                    gridLineWidth: 3
+
+                  },
+                  series: [{
+                    name: 'Data',
+                    data: data.map(point => point.value)
+                  }],
+                
+                };
+
+                //var chart = new Highcharts.Chart(options);
+
+                document.addEventListener('DOMContentLoaded', function () {
+                  var chart = new Highcharts.Chart(options);
+
+                  chart.renderer.text('Custom Text', 150, 240) // Replace (250, 150) with desired coordinates
+                  .css({
+                    color: 'red',
+                    fontSize: '8px',
+                    fontWeight: 'bold'
+                  })
+                  .attr({
+                    zIndex: 8 // Set a higher zIndex to ensure the text is displayed above the chart elements
+                  })
+                  .add();                
+
+                });
+              </script>
+            
+
+
+        </div>
+        <div class="footer">
+            <h1>Footer</h1>
+        </div>
+    </div>
+</body>
+</html> 

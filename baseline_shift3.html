@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Column Bar Chart with Vertical Shift</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+  <div id="container" style="height: 300px;"></div>
+
+  <script>
+    Highcharts.chart('container', {
+      chart: {
+        type: 'column'
+      },
+      title: {
+        text: 'Column Bar Chart with Vertical Shift'
+      },
+      xAxis: {
+        categories: ['A', 'B', 'C', 'D']
+      },
+      yAxis: {
+        title: {
+          text: 'Value'
+        },
+        reversed: true // Invert the y-axis
+      },
+      plotOptions: {
+        column: {
+          pointPadding: 0,
+          borderWidth: 0
+        }
+      },
+      series: [{
+        name: 'Data',
+        data: [
+          { y: 10, shift: -0.1 }, // Shifting this bar 0.1 units below the baseline
+          { y: 20, shift: 0.5 },  // Shifting this bar 0.2 units above the baseline
+          { y: -1, shift: -0.3 }, // Shifting this bar 0.3 units below the baseline
+          { y: 30, shift: 0.4 }   // Shifting this bar 0.4 units above the baseline
+        ],
+        pointPadding: 0.3, // Adjust this value to control the width of each column
+        //pointPlacement: function() {
+        //  console.log(this);
+        //  return this.options.shift; // Use the 'shift' property to set the vertical shift for each bar
+        //}
+        pointplacement: 'between'
+      }]
+    });
+  </script>
+</body>
+</html>
