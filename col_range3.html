@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Highcharts Column Range Chart</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var chartype = {
+                type: 'columnrange',
+                inverted: false
+            }
+            var chartitle = {
+                text: 'Temperature variation by month'
+            }
+            var chartsubtitle = {
+                text: 'Observed in Vik i Sogn, Norway'
+            }
+            var chartxaxis = {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            }
+            var chartyaxis = {
+                title: {
+                    text: 'Temperature ( °C )'
+                }
+            }
+            var chartooltip = {
+                valueSuffix: '°C'
+            }
+            var chartplotOptions = {
+                columnrange: {
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function () {
+                            return this.y + '°C';
+                        }
+                    }
+                }
+            }
+            var chartlegends={
+                enabled: false
+            }
+            var chartseries = [{
+                name: 'Temperatures',
+                data: [
+                    [-9.7, 9.4],
+                    [-8.7, 6.5],
+                    [-3.5, 9.4],
+                    [-1.4, 19.9],
+                    [0.0, 22.6],
+                    [2.9, 29.5],
+                    [9.2, 30.7],
+                    [7.3, 26.5],
+                    [4.4, 18.0],
+                    [-3.1, 11.4],
+                    [-5.2, 10.4],
+                    [-13.5, 9.8]
+                ]
+            }]
+            $('#container').highcharts({
+                chart:chartype,
+                title: chartitle,
+                subtitle: chartsubtitle,
+                xAxis:chartxaxis,
+                yAxis: chartyaxis,
+                tooltip: chartooltip,
+                plotOptions: chartplotOptions,
+                legend: chartlegends,
+                series:chartseries
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</body>
+</html>

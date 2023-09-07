@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vertical column range</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Header</h1>
+        </div>
+        <div class="content">
+            <div id="chart-container" style="width: 500px; height: 300px;"></div>
+        
+            <script>
+                // Your Highcharts code here
+                var data = [
+                  { category: 'Category 1', value: 10 },
+                  // Add more data points as needed
+                ];
+            
+
+                var options = {
+                  chart: {
+                    type: 'column',
+                    renderTo: 'chart-container'
+                  },
+                  title: {
+                    text: 'Vertical Bar Chart with Plot Lines'
+                  },
+                  xAxis: {
+                    categories: data.map(point => point.category),
+                    title: {
+                      text: 'X-axis Label'
+                    },
+                    plotLines: [
+                      
+                    { // Add plot lines for each bar
+                      color: 'green',
+                      dashStyle: 'dash',
+                      width: 2,
+                      value: -0.1 // Adjust the value to set the position of the plot line
+                    },
+                    { // Add plot lines for each bar
+                      color: 'red',
+                      dashStyle: 'dash',
+                      width: 2,
+                      value: 0.5 // Adjust the value to set the position of the plot line
+                    }, {
+                      color: 'blue',
+                      dashStyle: 'dash',
+                      width: 2,
+                      value: -0.4
+                    }]
+                  },
+                  yAxis: {
+                    title: {
+                      text: 'Y-axis Label'
+                    },
+                    plotLines: [
+                      
+                      { 
+                        color: 'green',
+                        dashStyle: 'dash',
+                        width: 1,
+                        value: 11 // Adjust the value to set the position of the plot line
+                      }
+                    ]  
+                  },
+                  series: [{
+                    name: 'Data',
+                    data: data.map(point => point.value)
+                  }],
+                  plotOptions: {
+                    column: {
+                      pointWidth: 90 // Set the width of the bars here (in pixels)
+                    }
+                  },
+                };
+
+                //var chart = new Highcharts.Chart(options);
+
+                //document.addEventListener('DOMContentLoaded', function () {
+                //  var chart = new Highcharts.Chart(options);
+
+                //  chart.renderer.text('Custom Text', 150, 240) // Replace (250, 150) with desired coordinates
+                //  .css({
+                //    color: 'red',
+                //    fontSize: '8px',
+                //    fontWeight: 'bold'
+                //  })
+                //  .attr({
+                //    zIndex: 8 // Set a higher zIndex to ensure the text is displayed above the chart elements
+                //  })
+                //  .add();                
+                //});
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    
+                    var options = {
+                        chart: {
+                            renderTo: 'chart-container',  // The ID of the container where the chart should be rendered
+                            type: 'columnrange',
+                            inverted: true
+                        },
+                        title: {
+                            text: 'Vertical Column Range Chart'
+                        },
+                        subtitle: {
+                            text: 'Using Highcharts'
+                        },
+                        xAxis: {
+                            categories: ['Item 1', 'Item 2', 'Item 3', 'Item 4']
+                        },
+                        yAxis: {
+                            title: {
+                                text: 'Values'
+                            }
+                        },
+                        series: [{
+                            name: 'Values',
+                            data: [
+                                [10, 20],
+                                [15, 25],
+                                [10, 30],
+                                [5, 25]
+                            ]
+                        }]
+                    };
+                
+                    new Highcharts.Chart(options);
+                });
+                </script>
+
+            
+
+
+        </div>
+        <div class="footer">
+            <h1>Footer</h1>
+        </div>
+    </div>
+</body>
+</html> 
